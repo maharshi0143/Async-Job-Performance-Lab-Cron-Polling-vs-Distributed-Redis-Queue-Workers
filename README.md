@@ -2,6 +2,8 @@
 
 Benchmark PostgreSQL-based CRON polling against Redis-backed BullMQ queues for job processing, with PostgreSQL advisory locking, priority management, and worker crash recovery.
 
+📺 [Project Walkthrough Video](https://drive.google.com/file/d/1TUM8MGTFYdImISrzCA2EQY72K-4waH5H/view?usp=sharing)
+
 ## Architecture
 
 ```
