@@ -1,0 +1,34 @@
+{
+  "name": "job-processing-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:api": "node server.js",
+    "start:cron": "node src/workers/cron.worker.js",
+    "start:queue": "node src/workers/queue.worker.js",
+    "benchmark": "node src/benchmark/benchmark.js",
+    "migrate": "npx prisma migrate deploy",
+    "generate": "npx prisma generate",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bull-board/api": "^8.0.1",
+    "@bull-board/express": "^8.0.1",
+    "@prisma/client": "^6.19.3",
+    "bullmq": "^5.78.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "ioredis": "^5.11.1",
+    "prisma": "^6.19.3",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
