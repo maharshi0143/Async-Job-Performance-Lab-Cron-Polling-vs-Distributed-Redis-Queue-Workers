@@ -118,7 +118,7 @@ docker compose down
 ```
 
 This starts:
-- `postgres` on `:5432`
+- `postgres` on `:5434` (mapped from container port 5432)
 - `redis` on `:6379`
 - `api` on `:3000`
 - `cron-worker`
@@ -232,17 +232,19 @@ This submits 100 CRON jobs + 100 QUEUE jobs, measures the latency from `submitte
 ```json
 {
   "cron_stats": {
-    "avg_latency_ms": 1234.56,
-    "p95_latency_ms": 5123.78,
-    "total_throughput_jobs_per_min": 45.12
+    "avg_latency_ms": 120054.98,
+    "p95_latency_ms": 191756,
+    "total_throughput_jobs_per_min": 29.77
   },
   "queue_stats": {
-    "avg_latency_ms": 345.67,
-    "p95_latency_ms": 1890.23,
-    "total_throughput_jobs_per_min": 120.50
+    "avg_latency_ms": 138604.04,
+    "p95_latency_ms": 220417,
+    "total_throughput_jobs_per_min": 25.63
   }
 }
 ```
+
+> Benchmark ran with: 100 CRON (sequential, polling every 10s) + 100 QUEUE (concurrency 3, 20% simulated failure rate, max 3 retries). Each job simulates 2–10s of processing. High latencies reflect queue depth — CRON processes sequentially so later jobs wait for earlier ones to finish; QUEUE with retries adds backpressure. Throughput is constrained by per-job processing time.
 
 ## Project Structure
 

@@ -1,0 +1,12 @@
+{
+  "cron_stats": {
+    "avg_latency_ms": 120054.98,
+    "p95_latency_ms": 191756,
+    "total_throughput_jobs_per_min": 29.77
+  },
+  "queue_stats": {
+    "avg_latency_ms": 138604.04,
+    "p95_latency_ms": 220417,
+    "total_throughput_jobs_per_min": 25.63
+  }
+}
